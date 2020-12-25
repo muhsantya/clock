@@ -1,0 +1,69 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+
+body{
+    background-color: #121212;
+    margin: 0;
+    font-family: "Roboto", monospace;
+}
+
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.clock{
+    background-color: #1f1f1f;
+    align-self: center;
+    width: 700px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px #00000046;
+}
+
+.clock .time {
+    color: #f5f5f5;
+    font-size: 100px;
+    font-weight: 300;
+    margin: 50px 0;
+}
+
+.power{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #1f1f1f;
+    background-size: 50px;
+    box-shadow: 0 10px 20px #00000046;
+    border: none;
+    display: flex;
+    align-self: center;
+    margin-left: 50px;
+}
+
+.powerButton{
+    width: 50px;
+    height: 50px;
+    align-self: center;
+    margin: auto;
+    border-radius: 50%;
+    border: none;  
+
+    background-image: url("Img/powerButton.svg");
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    transition: .5s;
+
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(322deg) brightness(103%) contrast(101%);
+}
+
+.powerOff{
+    filter: invert(0%) sepia(13%) saturate(2093%) hue-rotate(336deg) brightness(78%) contrast(86%);
+}
