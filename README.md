@@ -1,7 +1,3 @@
-# CLOCK
-
-A simple darkmode theme clock
-
 ## Features
 
 - Toggle on/off
