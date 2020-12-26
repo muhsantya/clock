@@ -1,11 +1,10 @@
 "use strict"
 
 function clock(){
-    "use strict"
 
     let Time = new Date()
-
-    let hours = addZero(Time.getHours())
+    
+    let hours = Time.getHours()
     let minutes = addZero(Time.getMinutes())
     let seconds = addZero(Time.getSeconds())
 
@@ -29,10 +28,10 @@ function toggleClock() {
 
 
 function timeFormat12(hours, minutes, seconds){
-    if ((hours * minutes * seconds) > (12 * 60 * 60)){
-        return `${hours - 12}:${minutes}:${seconds} PM`
+    if (hours > 12){
+        return `${addZero(hours - 12)}:${minutes}:${seconds} PM`
     } else {
-        return `${hours}:${minutes}:${seconds} AM`
+        return `${addZero(hours)}:${minutes}:${seconds} AM`
     }
 }
 
