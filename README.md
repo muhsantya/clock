@@ -1,6 +1,5 @@
 ## Features
 
-- Toggle on/off
-
+- Realtime time
 
 Created on December 25, 2020

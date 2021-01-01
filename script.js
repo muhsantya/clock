@@ -1,75 +1,61 @@
-"use strict"
+"use strict";
 
-function clock(){
+function clock() {
+    const Time = new Date();
 
-    let Time = new Date()
-    
-    let hours = Time.getHours()
-    let minutes = addZero(Time.getMinutes())
-    let seconds = addZero(Time.getSeconds())
+    // time
+    const hours = Time.getHours();
+    const minutes = addZero(Time.getMinutes());
+    const seconds = addZero(Time.getSeconds());
 
+    // Date
+    day.textContent = addZero(Time.getDate());
+    month.textContent = monthName[Time.getMonth()];
+    year.textContent = Time.getFullYear();
 
-    if(clockFormat === "12"){
-        timeInterface.textContent = timeFormat12(hours, minutes, seconds)
+    if (clockFormat === "12") {
+        timeInterface.textContent = timeFormat12(hours, minutes, seconds);
     } else {
-        timeInterface.textContent = `${hours}:${minutes}:${seconds}`
-    }
-} 
-
-
-function toggleClock() {
-    if(loop){
-        clearInterval(loop)
-        loop = false
-    } else {
-        loop = setInterval(clock, 500)
+        timeInterface.textContent = `${hours}:${minutes}:${seconds}`;
     }
 }
 
-
-function timeFormat12(hours, minutes, seconds){
-    if (hours > 12){
-        return `${addZero(hours - 12)}:${minutes}:${seconds} PM`
+function timeFormat12(hours, minutes, seconds) {
+    if (hours > 12) {
+        return `${addZero(hours - 12)}:${minutes}:${seconds} PM`;
     } else {
-        return `${addZero(hours)}:${minutes}:${seconds} AM`
+        return `${addZero(hours)}:${minutes}:${seconds} AM`;
     }
 }
-
 
 function addZero(num) {
-    return num < 10 ? "0" + num : num
+    return num < 10 ? "0" + num : num;
 }
 
-
 // clock format 12 or 24
-let clockFormat = "12"
-let loop = setInterval(clock, 500)
+let clockFormat = "12";
+const loop = setInterval(clock);
 
 // Html Object
-let timeInterface = document.querySelector(".time")
-let powerButtonParent = document.querySelector(".power")
-let powerButton = document.querySelector(".powerButton")
+const timeInterface = document.querySelector(".time");
+const powerButtonParent = document.querySelector(".power");
+const [day, month, year] = document.querySelector("ul.container").children;
 
-
-
+// Month
+const monthName = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "April",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+];
 
 // Run function
-clock()
-
-
-powerButtonParent.addEventListener("click", function(){
-    if(loop){
-        powerButton.classList.add("powerOff")
-        toggleClock()
-    } else {
-        powerButton.classList.remove("powerOff")
-        toggleClock()
-    }
-})
-
-
-
-
-
-    
-
+clock();
